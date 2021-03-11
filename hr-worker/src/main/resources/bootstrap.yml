@@ -7,3 +7,9 @@ spring:
   profiles:
     active:
     - test
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
