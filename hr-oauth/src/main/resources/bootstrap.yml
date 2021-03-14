@@ -1,12 +1,12 @@
 spring:
   application:
-    name: hr-worker
+    name: hr-oauth
   cloud:
     config:
       uri: http://localhost:8888
   profiles:
     active: default
-    
+
 management:
   endpoints:
     web:
