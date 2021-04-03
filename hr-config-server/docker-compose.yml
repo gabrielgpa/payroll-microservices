@@ -10,3 +10,7 @@ services:
     environment:
       - GITHUB_USER=${GITHUB_USER}
       - GITHUB_PASS=${GITHUB_PASS}
+networks:
+  default:
+    external:
+      name: hr-payroll-net
