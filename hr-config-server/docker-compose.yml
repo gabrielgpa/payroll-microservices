@@ -1,0 +1,12 @@
+version: "3"
+services:
+  hr-config-server:
+    container_name: hr-config-server
+    build:
+        context: .
+        dockerfile: Dockerfile
+    ports:
+        - "8888:8888"
+    environment:
+      - GITHUB_USER=${GITHUB_USER}
+      - GITHUB_PASS=${GITHUB_PASS}
