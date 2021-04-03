@@ -1,12 +1,11 @@
 version: "3"
 services:
   ms:
-    container_name: hr-eureka-server
+    container_name: hr-worker
     build:
         context: .
         dockerfile: Dockerfile
-    ports:
-        - "8761:8761"
+    command: "-P"
 networks:
   default:
     external:
