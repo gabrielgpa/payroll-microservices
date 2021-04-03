@@ -1,0 +1,12 @@
+version: "3"
+services:
+  ms:
+    container_name: hr-api-gateway-zuul
+    build:
+        context: .
+        dockerfile: Dockerfile
+    command: "-P"
+networks:
+  default:
+    external:
+      name: hr-payroll-net
