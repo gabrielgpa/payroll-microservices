@@ -5,6 +5,25 @@
 docker network create hr-net
 ```
 
+## Para usar portas dinâmicas pelo docker-compose 
+
+> Deve-se adicionar uma instrução "command", com o valor "-P"
+```
+version: "3"
+services:
+  ms:
+    container_name: hr-worker
+    build:
+        context: .
+        dockerfile: Dockerfile
+    command: "-P"
+networks:
+  default:
+    external:
+      name: hr-payroll-net
+```
+
+
 ## Testando perfil dev com Postgresql no Docker
 ```
 docker pull postgres:12-alpine
@@ -148,4 +167,10 @@ docker ps -a
 Acompanhar logs do container em execução
 ```
 docker logs -f <container-id>
+```
+
+Gerar dump Postgres
+```
+docker exec -t hr-user-pg12 pg_dumpall -c -U postgres > dump_`date +%d-%m-%Y"_"%H_%M_%S`.sql
+docker exec -t hr-worker-pg12 pg_dumpall -c -U postgres > dump_`date +%d-%m-%Y"_"%H_%M_%S`.sql
 ```
